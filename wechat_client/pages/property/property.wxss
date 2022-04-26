@@ -1,0 +1,22 @@
+.swiper_tab_item {  
+    color: #434343;  
+    display: inline-block; 
+     width: 200rpx; 
+     text-align: center; 
+     font-size: 27rpx;
+    }
+    .swiper_tab {  
+    text-align: left; 
+     line-height: 80rpx; 
+     white-space: nowrap; 
+     overflow: auto;
+    }
+    .active { 
+     display: inline-block; 
+     color: #f65959; 
+    border-bottom: 4rpx solid #f65959; 
+     width: 200rpx; 
+     text-align: center; 
+     font-size: 27rpx;
+    }
+    
