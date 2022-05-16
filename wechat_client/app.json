@@ -3,32 +3,35 @@
     "pages/property/property",
     "pages/report/report",
     "pages/bill/bill",
-    "pages/more/more",
-    "pages/logs/logs"
+    "pages/more/more"
   ],
   "tabBar": {
     "selectedColor": "#2761cc",
     "list": [{
-      "pagePath": "pages/property/property",
-      "text": "资产",
-      "iconPath": "/assets/images/property.png",
-      "selectedIconPath": "/assets/images/property_active.png"
-    }, {
-      "pagePath": "pages/report/report",
-      "text": "报表",
-      "iconPath": "/assets/images/report.png",
-      "selectedIconPath": "/assets/images/report_active.png"
-    }, {
-      "pagePath": "pages/bill/bill",
-      "text": "账单",
-      "iconPath": "/assets/images/bill.png",
-      "selectedIconPath": "/assets/images/bill_active.png"
-    }, {
-      "pagePath": "pages/more/more",
-      "text": "更多",
-      "iconPath": "/assets/images/more.png",
-      "selectedIconPath": "/assets/images/more_active.png"
-    }]
+        "pagePath": "pages/property/property",
+        "text": "资产",
+        "iconPath": "/assets/images/property.png",
+        "selectedIconPath": "/assets/images/property_active.png"
+      },
+      {
+        "pagePath": "pages/report/report",
+        "text": "报表",
+        "iconPath": "/assets/images/report.png",
+        "selectedIconPath": "/assets/images/report_active.png"
+      },
+      {
+        "pagePath": "pages/bill/bill",
+        "text": "账单",
+        "iconPath": "/assets/images/bill.png",
+        "selectedIconPath": "/assets/images/bill_active.png"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "更多",
+        "iconPath": "/assets/images/more.png",
+        "selectedIconPath": "/assets/images/more_active.png"
+      }
+    ]
   },
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -36,6 +39,12 @@
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark"
+  },
+  "usingComponents": {
+    "icon": "/components/icon/icon"
+  },
+  "useExtendedLib": {
+    "weui": true
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

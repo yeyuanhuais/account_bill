@@ -1,0 +1,27 @@
+<view class="container">
+    <view class="swiper_tab" style="width:{{windowWidth}}">
+        <view wx:for="{{tabList}}" class=" {{currentTab==index?'active':'swiper_tab_item'}}" data-current="{{index}}" bindtap="clickTab" wx:key="id">
+            {{item.name}}
+        </view>
+    </view>
+    <swiper current="{{currentTab}}" class="swiper_box" duration="300" style="height:{{winHeight - 55}}px" bindchange="bindChange">
+        <swiper-item>
+            <view class="swiper_box_item">
+                <view class="top">
+                    <text class="top_left">资产</text>
+                    <view class="top_right">
+                        <text class="money">￥8923.9</text>
+                        <text class="net_money">净资产￥8923.9</text>
+                    </view>
+                </view>
+                <view class="add_box">
+                    <icon name="add" size="40" />
+                    <text class="add_text">添加账户</text>
+                </view>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view>金融</view>
+        </swiper-item>
+    </swiper>
+</view>
