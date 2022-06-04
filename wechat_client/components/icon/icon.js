@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // add | zichan | baobiao | gengduo | zhangdan
+    // CombinedShape | touzizhongxin | jieru | jiechu | mayihuabei | jingdongbaitiao | xinyongqia | yinhangqia | weixinzhifu | chuzhiqia | yaopin | fangzu | taobao | yinpin | hongbao | huazhuangpin | dianying | yiwu | shuiguo | riyongpin | maicai | lingshi | yiban | canyin | jiaotong | bianji | lvyoudujia | chongwu | xiuliweihu | liwu | youxi | shujijiaocai | qicheyongpin | jiaju | yundong | jiadian | jiaoyu | yule | hunyinlianai | yinleyule | shumachanpin | yuer | arrowup | arrowdown | add | zichan | baobiao | gengduo | zhangdan
     name: {
       type: String,
     },

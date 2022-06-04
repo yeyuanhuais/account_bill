@@ -6,8 +6,8 @@ Page({
         assets: "8923.9",
         netAssets: "8923.9",
         childData: [
-          { name: "微信钱包", value: 0 },
-          { name: "现金", value: 1 },
+          { id: "1", title: "微信钱包", value: 0, icon: "weixinzhifu", assets: "6923.9" },
+          { id: "2", title: "现金", value: 1, icon: "weixinzhifu", assets: "923.9" },
         ],
       },
       {
@@ -42,10 +42,35 @@ Page({
       accountData: currentTarget.dataset.item,
     });
   },
-  buttontap(e) {
-    console.log(e.detail);
+  /* ======== 弹窗关闭 ======== */
+  close() {
+    this.setData({
+      show: false,
+      accountData: [],
+    });
   },
-  checkboxChange: function (e) {
-    console.log("checkbox发生change事件，携带value值为：", e.detail.value);
+  /* ======== 选择展示账户点击确定 ======== */
+  submit(e) {
+    this.setData({
+      show: false,
+      accountData: [],
+    });
+  },
+  /* ======== 账户多选框点击事件 ======== */
+  checkboxChange(e) {
+    let { accountData, assetsData } = this.data;
+    let data = e.detail.value;
+    let newAccountData = accountData.map(item => {
+      if (data.includes(item.id)) {
+        item.value = 1;
+      } else {
+        item.value = 0;
+      }
+      return item;
+    });
+    assetsData[activeTab].childData = newAccountData;
+    this.setData({
+      assetsData,
+    });
   },
 });

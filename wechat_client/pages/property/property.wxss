@@ -1,7 +1,7 @@
 .page {
   padding: 10rpx;
   width: 100%;
-  height: 98vh;
+  min-height: 98vh;
 }
 
 .swiper_tab {
@@ -19,6 +19,7 @@
 .swiper_box {
   width: 100%;
   margin-top: 10rpx;
+  min-height: 90vh;
 }
 
 .swiper_box_item {
@@ -71,4 +72,29 @@
   font-size: 35rpx;
   margin-left: 20rpx;
   color: #3f3f3fe7;
+}
+
+.acount_item {
+  margin-top: 30rpx;
+  justify-content: space-between;
+}
+.acount_item .acount_item_left {
+  font-size: 35rpx;
+}
+
+.acount_item .acount_item_right {
+  display: flex;
+  flex-flow: column wrap;
+  font-size: 32rpx;
+  align-items: flex-end;
+}
+
+.acount_item .money {
+  color: #2761cc;
+  font-size: 38rpx;
+}
+
+.acount_item .net_money {
+  color: #3f3f3fe7;
+  font-size: 28rpx;
 }

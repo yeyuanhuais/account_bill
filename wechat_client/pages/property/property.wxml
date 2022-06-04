@@ -1,17 +1,30 @@
 <view class="page">
-  <mp-tabs tabs="{{assetsData}}" activeTab="{{activeTab}}" tabClass="swiper_tab" swiperClass="swiper_box" activeClass="active" swiperClass="weui-tabs-swiper" tabUnderlineColor="" bindtabclick="onTabClick" bindchange="onChange">
+  <mp-tabs tabs="{{assetsData}}" activeTab="{{activeTab}}" class="mp_tabs" tabClass="swiper_tab" swiperClass="swiper_box" activeClass="active" y tabUnderlineColor="" bindtabclick="onTabClick" bindchange="onChange">
     <block wx:for="{{assetsData}}" wx:key="index">
       <view class="tab-content" data-set="{{item}}" slot="tab-content-{{index}}">
         <view class="swiper_box_item">
           <view class="top">
-            <text class="top_left" bindtap="openDialog" data-item="{{item.childData}}">
+            <view class="top_left" bindtap="openDialog" data-item="{{item.childData}}">
               <text>{{item.title}}</text>
-            </text>
+              <icon name="arrowdown" size="40" style="margin-left:20rpx" wx:if="{{!show}}" />
+              <icon name="arrowup" size="40" style="margin-left:20rpx" wx:else />
+            </view>
             <view class="top_right">
               <text class="money">￥{{item.assets||0}}</text>
               <text class="net_money">净资产￥{{item.netAssets||0}}</text>
             </view>
           </view>
+          <block wx:for="{{item.childData}}" wx:for-item="childItem" wx:for-index="childIndex">
+            <view wx:if="{{childItem.value}}" class="acount_item">
+              <view class="acount_item_left" bindtap="openDialog" data-item="{{item.childData}}">
+                <icon name="weixinzhifu" size="50" style="margin:10rpx" />
+                <text>{{childItem.title}}</text>
+              </view>
+              <view class="acount_item_right">
+                <text class="money">{{childItem.assets||0}}</text>
+              </view>
+            </view>
+          </block>
           <view class="add_box">
             <icon name="add" size="40" />
             <text class="add_text">添加账户</text>
@@ -20,13 +33,13 @@
       </view>
     </block>
   </mp-tabs>
-  <mp-half-screen-dialog bindbuttontap="buttontap" show="{{show}}" maskClosable="{{false}}">
+  <mp-half-screen-dialog bindclose="close" bindbuttontap="submit" show="{{show}}" maskClosable="{{false}}">
     <view slot="title">
       <text>请选择要展示的账户</text>
     </view>
     <view slot="desc">
       <mp-checkbox-group multi="{{true}}" bindchange="checkboxChange">
-        <mp-checkbox wx:for="{{accountData}}" wx:key="value" label="{{item.name}}" value="{{item.value}}" checked="{{item.value}}"></mp-checkbox>
+        <mp-checkbox wx:for="{{accountData}}" wx:key="id" label="{{item.title}}" value="{{item.id}}" checked="{{item.value}}"></mp-checkbox>
       </mp-checkbox-group>
     </view>
     <view slot="footer">
