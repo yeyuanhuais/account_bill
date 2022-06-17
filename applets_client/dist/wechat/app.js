@@ -4988,9 +4988,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "./src/app.entry.js":
+/***/ "./src/app.entry.ts":
 /*!**************************!*\
-  !*** ./src/app.entry.js ***!
+  !*** ./src/app.entry.ts ***!
   \**************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -4998,18 +4998,18 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @remax/runtime */ "./node_modules/@remax/runtime/esm/index.js");
-/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.js */ "./src/app.js");
+/* harmony import */ var _app_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.ts */ "./src/app.ts");
 __webpack_require__(/*! ./app.css */ "./src/app.css");
 
 
 
-App(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createAppConfig"])(_app_js__WEBPACK_IMPORTED_MODULE_1__["default"]));
+App(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createAppConfig"])(_app_ts__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
-/***/ "./src/app.js":
+/***/ "./src/app.ts":
 /*!********************!*\
-  !*** ./src/app.js ***!
+  !*** ./src/app.ts ***!
   \********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -5041,13 +5041,13 @@ module.exports = require('/__remax_runtime_options__');
 
 /***/ 0:
 /*!*************************************************************!*\
-  !*** multi @remax/apply-runtime-options ./src/app.entry.js ***!
+  !*** multi @remax/apply-runtime-options ./src/app.entry.ts ***!
   \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! @remax/apply-runtime-options */"./node_modules/@remax/apply-runtime-options.js");
-module.exports = __webpack_require__(/*! D:\个人\account_bill\applets_client\src\app.entry.js */"./src/app.entry.js");
+module.exports = __webpack_require__(/*! D:\个人\account_bill\applets_client\src\app.entry.ts */"./src/app.entry.ts");
 
 
 /***/ })

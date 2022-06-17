@@ -2,7 +2,7 @@
   "name": "applets_client",
   "private": true,
   "version": "1.0.0",
-  "description": "小程序框架remax",
+  "description": "Remax Project With TypeScript",
   "main": "index.js",
   "keywords": [],
   "author": "yeyuanhua <1378476425@qq.com>",
@@ -17,6 +17,8 @@
     "remax": "^2.9.1"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2"
+    "cross-env": "^7.0.2",
+    "@types/react": "^16.14.2",
+    "typescript": "^4.1.2"
   }
 }
