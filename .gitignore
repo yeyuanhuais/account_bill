@@ -1,0 +1,22 @@
+.DS_Store
+/applets_client/node_modules/
+/applets_client/dist/
+/applets_client/npm-debug.log*
+/applets_client/yarn-debug.log*
+/applets_client/yarn-error.log*
+
+
+/wechat_client/node_modules/
+
+# Editor directories and files
+.idea
+.vscode
+.cache
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+_logs
+.cache
+_cacache
+.history
