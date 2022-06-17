@@ -3,7 +3,8 @@
     "pages/property/property",
     "pages/report/report",
     "pages/bill/bill",
-    "pages/more/more"
+    "pages/more/more",
+    "pages/add_edit_account/add_edit_account"
   ],
   "tabBar": {
     "selectedColor": "#2761cc",

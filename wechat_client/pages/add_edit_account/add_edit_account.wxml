@@ -1,0 +1,4 @@
+<!-- pages/add_edit_account/add_edit_account.wxml -->
+<mp-form models="{{formData}}">
+  
+</mp-form>

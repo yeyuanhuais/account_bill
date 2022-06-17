@@ -3,9 +3,6 @@
   "navigationBarTitleText": "资产",
   "usingComponents": {
     "mp-tabs": "@miniprogram-component-plus/tabs",
-    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog",
-    "mp-checkbox-group": "weui-miniprogram/checkbox-group/checkbox-group",
-    "mp-checkbox": "weui-miniprogram/checkbox/checkbox",
-    "mp-cells": "weui-miniprogram/cells/cells"
+    "half-screen-dialog": "../../components/property/half_screen_dialog/half_screen_dialog"
   }
 }

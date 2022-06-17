@@ -11,10 +11,10 @@
             </view>
             <view class="top_right">
               <text class="money">￥{{item.assets||0}}</text>
-              <text class="net_money">净资产￥{{item.netAssets||0}}</text>
+              <text class="net_money" wx:if="{{item.title=='资产'}}">净资产￥{{item.netAssets||0}}</text>
             </view>
           </view>
-          <block wx:for="{{item.childData}}" wx:for-item="childItem" wx:for-index="childIndex">
+          <block wx:for="{{item.childData}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childIndex">
             <view wx:if="{{childItem.value}}" class="acount_item">
               <view class="acount_item_left" bindtap="openDialog" data-item="{{item.childData}}">
                 <icon name="weixinzhifu" size="50" style="margin:10rpx" />
@@ -25,7 +25,7 @@
               </view>
             </view>
           </block>
-          <view class="add_box">
+          <view class="add_box" bind:tap="addAccount">
             <icon name="add" size="40" />
             <text class="add_text">添加账户</text>
           </view>
@@ -33,17 +33,5 @@
       </view>
     </block>
   </mp-tabs>
-  <mp-half-screen-dialog bindclose="close" bindbuttontap="submit" show="{{show}}" maskClosable="{{false}}">
-    <view slot="title">
-      <text>请选择要展示的账户</text>
-    </view>
-    <view slot="desc">
-      <mp-checkbox-group multi="{{true}}" bindchange="checkboxChange">
-        <mp-checkbox wx:for="{{accountData}}" wx:key="id" label="{{item.title}}" value="{{item.id}}" checked="{{item.value}}"></mp-checkbox>
-      </mp-checkbox-group>
-    </view>
-    <view slot="footer">
-      <button type="primary">确定</button>
-    </view>
-  </mp-half-screen-dialog>
+  <half-screen-dialog wx:if="{{show}}" accountData="{{accountData}}" bind:close="close" bind:checkboxChange="checkboxChange"/>
 </view>

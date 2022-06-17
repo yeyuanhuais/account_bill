@@ -12,7 +12,7 @@ Page({
       },
       {
         title: "负债",
-        childData: [{}],
+        childData: [],
       },
     ], //资产数据
     activeTab: 0, //当前tabs值
@@ -42,35 +42,23 @@ Page({
       accountData: currentTarget.dataset.item,
     });
   },
-  /* ======== 弹窗关闭 ======== */
+  /* ======== 弹窗关闭  选择展示账户点击确定 ======== */
   close() {
     this.setData({
       show: false,
       accountData: [],
     });
   },
-  /* ======== 选择展示账户点击确定 ======== */
-  submit(e) {
-    this.setData({
-      show: false,
-      accountData: [],
-    });
-  },
   /* ======== 账户多选框点击事件 ======== */
-  checkboxChange(e) {
-    let { accountData, assetsData } = this.data;
-    let data = e.detail.value;
-    let newAccountData = accountData.map(item => {
-      if (data.includes(item.id)) {
-        item.value = 1;
-      } else {
-        item.value = 0;
-      }
-      return item;
-    });
-    assetsData[activeTab].childData = newAccountData;
+  checkboxChange({ detail }) {
+    let { assetsData, activeTab } = this.data;
+    assetsData[activeTab].childData = detail.newAccountData;
     this.setData({
       assetsData,
     });
+  },
+  /* ======== 添加账户 ======== */
+  addAccount() {
+    wx.navigateTo({ url: "/pages/add_edit_account/add_edit_account" });
   },
 });
