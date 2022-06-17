@@ -1,12 +1,8 @@
 .DS_Store
-/applets_client/node_modules/
-/applets_client/dist/
-/applets_client/npm-debug.log*
-/applets_client/yarn-debug.log*
-/applets_client/yarn-error.log*
-
-
-/wechat_client/node_modules/
+*/node_modules/
+*/npm-debug.log*
+*/yarn-debug.log*
+*/yarn-error.log*
 
 # Editor directories and files
 .idea
