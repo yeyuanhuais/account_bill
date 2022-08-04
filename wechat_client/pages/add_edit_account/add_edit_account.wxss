@@ -1,1 +1,40 @@
 /* pages/add_edit_account/add_edit_account.wxss */
+.section {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx;
+}
+.section view {
+  margin-right: 20rpx;
+}
+.btn-area {
+  margin: 20rpx;
+}
+button {
+  margin: 10rpx 0;
+}
+.color-block {
+  width: 400rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 100rpx;
+  color: white;
+}
+
+.page__hd {
+  padding: 40px;
+}
+
+.page__title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.page__desc {
+  margin-top: 5px;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  font-size: 14px;
+}

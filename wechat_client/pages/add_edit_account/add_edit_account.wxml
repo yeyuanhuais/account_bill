@@ -1,4 +1,23 @@
-<!-- pages/add_edit_account/add_edit_account.wxml -->
-<mp-form models="{{formData}}">
-  
-</mp-form>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">账户名称</view>
+    <input name="name" placeholder="账户名称" />
+  </view>
+  <view class="section section_gap">
+    <view class="section__title">账户类型</view>
+    <text>{{formData.typeName}}</text>
+  </view>
+  <view class="section">
+    <view class="section__title">金额</view>
+    <input name="name" placeholder="金额" />
+  </view>
+  <view class="section">
+    <view class="section__title">选择账户颜色</view>
+    <view style="background:{{rgb}};" bindtap="toPick" class="color-block">{{rgb}}</view>
+  </view>
+  <color-picker bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" />
+  <view class="btn-area">
+    <button formType="submit" type="primary">提交</button>
+    <button formType="reset">重置</button>
+  </view>
+</form>

@@ -59,6 +59,6 @@ Page({
   },
   /* ======== 添加账户 ======== */
   addAccount() {
-    wx.navigateTo({ url: "/pages/add_edit_account/add_edit_account" });
+    wx.navigateTo({ url: "/pages/choose_account_type/choose_account_type" });
   },
 });

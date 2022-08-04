@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/property/property",
+    "pages/choose_account_type/choose_account_type",
+    "pages/add_edit_account/add_edit_account",
     "pages/report/report",
     "pages/bill/bill",
-    "pages/more/more",
-    "pages/add_edit_account/add_edit_account"
+    "pages/more/more"
   ],
   "tabBar": {
     "selectedColor": "#2761cc",

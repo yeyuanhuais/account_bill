@@ -1,0 +1,13 @@
+<block wx:for="{{accountOptions}}" wx:key="id">
+  <mp-cells ext-class="my-cells" title="{{item.name}}">
+    <block wx:for="{{item.children}}" wx:for-item="child" wx:key="id">
+      <mp-cell bind:tap="chooseType" data-id="{{child.id}}" data-name="{{child.name}}">
+        <view>
+          <icon name="{{child.icon}}" size="40" style="margin-left:20rpx" />
+          {{child.name}}
+        </view>
+        <view slot="footer">{{child.dec}}</view>
+      </mp-cell>
+    </block>
+  </mp-cells>
+</block>
