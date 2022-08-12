@@ -1,0 +1,1 @@
+<canvas type="2d" style="width:{{windowInfoData.width}}px; height: {{windowInfoData.width}}px" id="myCanvas"></canvas>

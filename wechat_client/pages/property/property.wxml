@@ -33,5 +33,5 @@
       </view>
     </block>
   </mp-tabs>
-  <half-screen-dialog wx:if="{{show}}" accountData="{{accountData}}" bind:close="close" bind:checkboxChange="checkboxChange"/>
+  <half-screen-dialog wx:if="{{show}}" accountData="{{accountData}}" bind:close="close" bind:checkboxChange="checkboxChange" />
 </view>
