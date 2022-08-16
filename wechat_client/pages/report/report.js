@@ -1,6 +1,6 @@
 Page({
   data: {
-    activeTab:1, //当前tabs值
+    activeTab: 0, //当前tabs值
     tabsData: [
       {
         title: "分类",

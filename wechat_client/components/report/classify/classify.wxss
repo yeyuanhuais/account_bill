@@ -31,3 +31,7 @@
   border: 1rpx solid #64bff1;
   border-radius: 30rpx;
 }
+.classify .classify_item .item {
+  height: 100rpx;
+  line-height: 100rpx;
+}

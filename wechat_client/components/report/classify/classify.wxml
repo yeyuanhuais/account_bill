@@ -11,4 +11,13 @@
   <view class="pie">
     <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ecPie }}"></ec-canvas>
   </view>
+  <view class="classify_item">
+    <block wx:for="{{classifyItem}}" wx:key="index">
+      <view class="item">
+        <text>{{item.name}}</text>
+        <text>{{item.value}}</text>
+        <text>{{item.ratio}}</text>
+      </view>
+    </block>
+  </view>
 </view>

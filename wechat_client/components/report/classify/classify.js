@@ -15,6 +15,21 @@ Component({
       lazyLoad: true,
     },
     time: { ...getStartEndTime() },
+    chartData: { title: 0 }, //title (0 支出 ，1 收入)
+    classifyItem: [
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+      { name: "类别1", value: 2333, ratio: "30%" },
+    ],
   },
   ready() {
     this.ecPieComponent = this.selectComponent("#mychart-dom-pie");
@@ -41,14 +56,23 @@ Component({
         });
         this.getPieOption(chart);
         this.chart = chart;
+        chart.on("click", params => {
+          const { chartData } = this.data;
+          if (params.componentType && params.componentType === "title") {
+            this.setData({ chartData: { ...chartData, title: chartData.title ? 0 : 1 } }, () => {
+              this.getPieOption(chart);
+            });
+          }
+        });
         // 注意这里一定要返回 chart 实例，否则会影响事件处理等
         return chart;
       });
     },
     getPieOption(chart) {
+      const { chartData } = this.data;
       const option = {
         title: {
-          text: "{label|总收入}\n{value|￥33333.65}",
+          text: `{label|总${chartData.title ? "支出" : "收入"}}\n{value|￥33333.65}\n{icon|⇋}`,
           textStyle: {
             color: "#666666",
             align: "center",
@@ -63,14 +87,19 @@ Component({
                 fontSize: 18,
                 fontWeight: "bold",
               },
+              icon: {
+                fontSize: 25,
+                fontWeight: "normal",
+              },
             },
           },
           textAlign: "center",
           textVerticalAlign: "center",
           left: "49%",
-          top: "40%",
+          top: "49%",
           right: "50%",
           bottom: "50%",
+          triggerEvent: true,
         },
         tooltip: {
           trigger: "item",
