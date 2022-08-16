@@ -9,3 +9,11 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }
+.tabs_swiper {
+  height: calc(100vh - 76rpx);
+}
+.tab_content {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}

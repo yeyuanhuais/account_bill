@@ -19,8 +19,7 @@ const formatNumber = n => {
  * @param { Object } dateObj {start:"",end:""}
  * @return { Object } description...
  */
-export const getStartEndTime = (dateObj = { start: "", end: "" }, type = "") => {
-  console.log("%c dateObj", "font-size:13px; background:pink; color:#bf2c9f;", dateObj);
+export const getStartEndTime = (dateObj = { start: "", end: "" }, type = "day") => {
   let { start = "", end = "" } = dateObj;
   /* ======== 一天的开始时间 ======== */
   function getStartTimeFun(time) {
@@ -101,5 +100,5 @@ export const getStartEndTime = (dateObj = { start: "", end: "" }, type = "") => 
       endTime = getEndTimeFun(end);
       break;
   }
-  return { startTime: new Date(startTime).toLocaleString(), endTime: new Date(endTime).toLocaleString() };
+  return { startTime: formatTime(new Date(startTime)), endTime: formatTime(new Date(endTime)) };
 };

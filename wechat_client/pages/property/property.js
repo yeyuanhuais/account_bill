@@ -1,6 +1,6 @@
 Page({
   data: {
-    assetsData: [
+    tabsData: [
       {
         title: "资产",
         assets: "8923.9",
@@ -36,11 +36,8 @@ Page({
     });
   },
   /* ======== 弹窗打开 ======== */
-  openDialog({ currentTarget }) {
-    this.setData({
-      show: true,
-      accountData: currentTarget.dataset.item,
-    });
+  openDialog({ detail }) {
+    this.setData({ ...detail });
   },
   /* ======== 弹窗关闭  选择展示账户点击确定 ======== */
   close() {
@@ -56,9 +53,5 @@ Page({
     this.setData({
       assetsData,
     });
-  },
-  /* ======== 添加账户 ======== */
-  addAccount() {
-    wx.navigateTo({ url: "/pages/choose_account_type/choose_account_type" });
   },
 });

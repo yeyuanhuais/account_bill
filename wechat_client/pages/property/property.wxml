@@ -1,37 +1,10 @@
-<view class="page">
-  <mp-tabs tabs="{{assetsData}}" activeTab="{{activeTab}}" class="mp_tabs" tabClass="swiper_tab" swiperClass="swiper_box" activeClass="active" y tabUnderlineColor="" bindtabclick="onTabClick" bindchange="onChange">
-    <block wx:for="{{assetsData}}" wx:key="index">
-      <view class="tab-content" data-set="{{item}}" slot="tab-content-{{index}}">
-        <view class="swiper_box_item">
-          <view class="top">
-            <view class="top_left" bindtap="openDialog" data-item="{{item.childData}}">
-              <text>{{item.title}}</text>
-              <icon name="arrowdown" size="40" style="margin-left:20rpx" wx:if="{{!show}}" />
-              <icon name="arrowup" size="40" style="margin-left:20rpx" wx:else />
-            </view>
-            <view class="top_right">
-              <text class="money">￥{{item.assets||0}}</text>
-              <text class="net_money" wx:if="{{item.title=='资产'}}">净资产￥{{item.netAssets||0}}</text>
-            </view>
-          </view>
-          <block wx:for="{{item.childData}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childIndex">
-            <view wx:if="{{childItem.value}}" class="acount_item">
-              <view class="acount_item_left" bindtap="openDialog" data-item="{{item.childData}}">
-                <icon name="weixinzhifu" size="50" style="margin:10rpx" />
-                <text>{{childItem.title}}</text>
-              </view>
-              <view class="acount_item_right">
-                <text class="money">{{childItem.assets||0}}</text>
-              </view>
-            </view>
-          </block>
-          <view class="add_box" bind:tap="addAccount">
-            <icon name="add" size="40" />
-            <text class="add_text">添加账户</text>
-          </view>
-        </view>
+<view class="property">
+  <tabs tabs="{{tabsData}}" activeTab="{{activeTab}}" swiperClass="tabs_swiper" bindtabclick="onTabClick" bindchange="onChange">
+    <block wx:for="{{tabsData}}" wx:key="index">
+      <view class="tab_content" data-set="{{item}}" slot="tab-content-{{index}}">
+        <assets-or-liabilities dataItem="{{item}}" bind:openDialog="openDialog" />
       </view>
     </block>
-  </mp-tabs>
+  </tabs>
   <half-screen-dialog wx:if="{{show}}" accountData="{{accountData}}" bind:close="close" bind:checkboxChange="checkboxChange" />
 </view>

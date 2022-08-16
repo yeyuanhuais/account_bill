@@ -1,0 +1,12 @@
+.trend {
+  width: 100%;
+  height: 100%;
+}
+.trend .bar {
+  width: 100%;
+  height: 500rpx;
+}
+.trend ec-canvas {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,10 @@
+<view class="trend">
+  <view class="bar">
+    <text>每日对比</text>
+    <ec-canvas id="mychart-dom-bar-date" canvas-id="mychart-bar-date" ec="{{ ecBarDate }}"></ec-canvas>
+  </view>
+  <!-- <view class="bar">
+    <text>每月对比</text>
+    <ec-canvas id="mychart-dom-bar-month" canvas-id="mychart-bar-month" ec="{{ ecBarMonth }}"></ec-canvas>
+  </view> -->
+</view>

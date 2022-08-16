@@ -1,0 +1,14 @@
+<view class="classify">
+  <view class="picker_group">
+    <picker class="picker_date" mode="date" value="{{time.startTime}}" bindchange="bindStartDateChange">
+      <view class="picker">{{time.startTime}}</view>
+    </picker>
+    至
+    <picker class="picker_date" mode="date" value="{{time.endTime}}" bindchange="bindEndDateChange">
+      <view class="picker">{{time.endTime}}</view>
+    </picker>
+  </view>
+  <view class="pie">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ecPie }}"></ec-canvas>
+  </view>
+</view>

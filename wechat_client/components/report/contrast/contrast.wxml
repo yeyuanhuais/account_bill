@@ -1,0 +1,16 @@
+<view class="contrast">
+  <text>每日对比（近一个月）</text>
+  <view  class="flex">
+    <text>选择类别：</text>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">当前{{array[index]}}</view>
+    </picker>
+  </view>
+  <view class="bar">
+    <ec-canvas id="mychart-dom-bar-date" canvas-id="mychart-bar-date" ec="{{ ecBarDate }}"></ec-canvas>
+  </view>
+  <view class="bar">
+    <text>每月对比</text>
+    <ec-canvas id="mychart-dom-bar-month" canvas-id="mychart-bar-month" ec="{{ ecBarMonth }}"></ec-canvas>
+  </view>
+</view>

@@ -1,6 +1,10 @@
 {
     "component": true,
+    "navigationBarTitleText": "报表",
     "usingComponents": {
-        "ec-canvas": "/components/ec-canvas/ec-canvas"
+        "tabs": "../../components/tabs/tabs",
+        "classify": "../../components/report/classify/classify",
+        "contrast": "../../components/report/contrast/contrast",
+        "trend": "../../components/report/trend/trend"
     }
 }
