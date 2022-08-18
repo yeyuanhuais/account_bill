@@ -1,4 +1,4 @@
-import * as echarts from "../../ec-canvas/echarts";
+import * as echarts from "../../common/ec-canvas/echarts";
 import { getStartEndTime } from "../../../utils/util.js";
 // components/report/classify/classify.js
 Component({

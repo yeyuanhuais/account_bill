@@ -2,7 +2,7 @@
   "component": true,
   "navigationBarTitleText": "资产",
   "usingComponents": {
-    "tabs": "../../components/tabs/tabs",
+    "tabs": "../../components/common/tabs/tabs",
     "half-screen-dialog": "../../components/property/half_screen_dialog/half_screen_dialog",
     "assets-or-liabilities": "../../components/property/assets_or_liabilities/assets_or_liabilities"
   }

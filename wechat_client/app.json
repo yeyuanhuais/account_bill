@@ -1,10 +1,10 @@
 {
     "pages": [
-        "pages/report/report",
+        "pages/bill/bill",
         "pages/property/property",
+        "pages/report/report",
         "pages/choose_account_type/choose_account_type",
         "pages/add_edit_account/add_edit_account",
-        "pages/bill/bill",
         "pages/more/more"
     ],
     "tabBar": {
@@ -44,7 +44,7 @@
         "backgroundTextStyle": "dark"
     },
     "usingComponents": {
-        "icon": "/components/icon/icon"
+        "icon": "/components/common/icon/icon"
     },
     "useExtendedLib": {
         "weui": true
