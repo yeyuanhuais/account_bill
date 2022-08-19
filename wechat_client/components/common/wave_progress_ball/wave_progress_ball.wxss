@@ -1,1 +1,4 @@
-/* components/wave_progress_ball/wave_progress_ball.wxss */
+#wave_progress_ball {
+  width: 100%;
+  height: 100%;
+}

@@ -1,7 +1,6 @@
 <view class="bill">
   <view class="top flex">
-    <view class="middle_left middle_item">11</view>
-    <view class="middle_right middle_item">22</view>
+    <wave-progress-ball class="ball" width="{{200}}" height="{{200}}" />
   </view>
   <view class="flex middle">
     <view class="middle_left middle_item">11</view>

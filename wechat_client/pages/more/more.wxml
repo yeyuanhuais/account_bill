@@ -8,4 +8,10 @@
             <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         </block>
     </view>
+    {{windowInfo.pixelRatio}}
+    {{windowInfo.screenWidth}}
+    {{windowInfo.screenHeight}}
+    {{windowInfo.windowWidth}}
+    {{windowInfo.windowHeight}}
+    {{windowInfo.statusBarHeight}}
 </view>

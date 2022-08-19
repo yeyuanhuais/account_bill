@@ -1,2 +1,1 @@
-<!--components/wave_progress_ball/wave_progress_ball.wxml-->
-<text>components/wave_progress_ball/wave_progress_ball.wxml</text>
+<canvas style="width:{{width}}rpx; height: {{height}}rpx;" type="2d" id="wave_progress_ball"></canvas>
