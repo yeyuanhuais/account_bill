@@ -4,10 +4,13 @@
 .weui-tabs-bar__wrp {
   width: 100%;
   background: #fff;
+  overflow: hidden;
 }
 .weui-tabs-bar__content {
   width: 100%;
   white-space: nowrap;
+  padding: 0 20rpx 20rpx 20rpx;
+  box-sizing: border-box;
 }
 .weui-tabs-bar__item {
   display: inline-block;
@@ -19,9 +22,16 @@
   border-bottom-color: transparent;
   padding-bottom: 4px;
   margin: 0 10px;
-  color: rgba(0, 0, 0, 0.9);
+  /* color: rgba(0, 0, 0, 0.9); */
+}
+.label {
+  font-size: 40rpx;
 }
 .tab-bar-title__selected {
   font-size: 20px;
   font-weight: bold;
+}
+.swiper_content {
+  width: 95% !important;
+  padding: 0 20rpx 20rpx 20rpx;
 }

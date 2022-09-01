@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // CombinedShape | touzizhongxin | jieru | jiechu | mayihuabei | jingdongbaitiao | xinyongqia | yinhangqia | weixinzhifu | chuzhiqia | yaopin | fangzu | taobao | yinpin | hongbao | huazhuangpin | dianying | yiwu | shuiguo | riyongpin | maicai | lingshi | yiban | canyin | jiaotong | bianji | lvyoudujia | chongwu | xiuliweihu | liwu | youxi | shujijiaocai | qicheyongpin | jiaju | yundong | jiadian | jiaoyu | yule | hunyinlianai | yinleyule | shumachanpin | yuer | arrowup | arrowdown | add | zichan | baobiao | gengduo | zhangdan
+    // icon-bargenjinjilu | icon-jia | icon-bargengduo | icon-baryinhangka | icon-tongji | icon-shuliangtongji | icon-ico_e_advice | icon-wode | icon-barshujutongji | icon-gengduo1 | icon-daikuan | icon-shoukuan | icon-xianjinqianbao | icon-qiankuan | icon-zhifubao | icon-weixin | icon-shoukuanma | icon-yinhangka | icon-qianbao | icon-ka | icon-business | icon-bonus | icon-clothes | icon-daily | icon-food | icon-donate | icon-houserent | icon-intrest | icon-fuel | icon-entertainment | icon-other | icon-medicine | icon-salary | icon-makeup | icon-shopping | icon-study | icon-phone | icon-tour | icon-smoke_wine | icon-traffic | icon-winning | icon-investment | icon-xianjin | icon-touzizhongxin | icon-jieru | icon-jiechu | icon-mayihuabei | icon-jingdongbaitiao | icon-xinyongqia | icon-yinhangqia | icon-yaopin | icon-fangzu | icon-taobao | icon-yinpin | icon-hongbao | icon-huazhuangpin | icon-dianying | icon-yiwu | icon-shuiguo | icon-riyongpin | icon-maicai | icon-lingshi | icon-yiban | icon-canyin | icon-jiaotong | icon-bianji | icon-lvyoudujia | icon-chongwu | icon-xiuliweihu | icon-liwu | icon-youxi | icon-shujijiaocai | icon-qicheyongpin | icon-jiaju | icon-yundong | icon-jiadian | icon-jiaoyu | icon-yule | icon-hunyinlianai | icon-yinleyule | icon-shumachanpin | icon-yuer | icon-arrowup | icon-arrowdown | icon-add
     name: {
       type: String,
     },
@@ -16,7 +16,7 @@ Component({
     },
     size: {
       type: Number,
-      value: 25,
+      value: 50,
       observer: function(size) {
         this.setData({
           svgSize: size / 750 * wx.getSystemInfoSync().windowWidth,
@@ -26,7 +26,7 @@ Component({
   },
   data: {
     colors: '',
-    svgSize: 25 / 750 * wx.getSystemInfoSync().windowWidth,
+    svgSize: 50 / 750 * wx.getSystemInfoSync().windowWidth,
     quot: '"',
     isStr: true,
   },

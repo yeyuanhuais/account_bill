@@ -1,5 +1,3 @@
 .property {
-  padding: 10rpx;
   width: 100%;
-  min-height: 98vh;
 }

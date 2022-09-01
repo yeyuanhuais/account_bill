@@ -5,8 +5,8 @@
       <view class="weui-tabs-bar__content">
         <block wx:for="{{tabs}}" wx:key="title">
           <view id="item_{{index}}" class="weui-tabs-bar__item" style="background-color: {{tabBackgroundColor}}; color: {{activeTab === index ? tabActiveTextColor : tabInactiveTextColor}};" bindtap="handleTabClick" data-index="{{index}}">
-            <view class="weui-tabs-bar__title {{tabClass}} {{activeTab === index ? activeClass : ''}}" style="border-bottom-color: {{activeTab === index ? tabUnderlineColor : 'transparent'}}">
-              <text class="">{{item.title}}</text>
+            <view class="weui-tabs-bar__title {{tabClass}} {{activeTab === index ? activeClass : ''}}">
+              <text class="label">{{item.title}}</text>
             </view>
           </view>
         </block>
@@ -15,7 +15,7 @@
   </view>
   <!-- 内容 -->
   <swiper class="{{swiperClass}}" current="{{activeTab}}" duration="{{duration}}" bindchange="handleSwiperChange">
-    <swiper-item wx:for="{{tabs}}" wx:key="title">
+    <swiper-item wx:for="{{tabs}}" wx:key="title" class="swiper_content">
       <slot name="tab-content-{{index}}"></slot>
     </swiper-item>
   </swiper>

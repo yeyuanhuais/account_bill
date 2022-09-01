@@ -26,4 +26,7 @@ Page({
       activeTab: index,
     });
   },
+  onShow() {
+    this.getTabBar().setData({ selected: 1 });
+  },
 });

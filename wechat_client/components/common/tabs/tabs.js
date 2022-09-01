@@ -9,8 +9,7 @@ Component({
     tabClass: { type: String, value: "" }, //选项卡样式
     swiperClass: { type: String, value: "" }, //内容区域 swiper 的样式
     activeClass: { type: String, value: "" }, //选项激活时class
-    tabUnderlineColor: { type: String, value: "#07c160" }, //激活时下划线颜色
-    tabActiveTextColor: { type: String, value: "#000000" }, //激活时文字颜色
+    tabActiveTextColor: { type: String, value: "#76BA99" }, //激活时文字颜色
     tabInactiveTextColor: { type: String, value: "#000000" }, //未选中时文字颜色
     tabBackgroundColor: { type: String, value: "#ffffff" }, //选项卡背景色
     activeTab: { type: Number, value: 0 }, //当前激活tab

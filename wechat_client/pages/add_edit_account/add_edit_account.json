@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "添加账户",
+  "navigationBarTitleText": "新建账户",
   "usingComponents": {
     "mp-form": "weui-miniprogram/form/form",
     "mp-cells": "weui-miniprogram/cells/cells",

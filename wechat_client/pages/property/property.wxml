@@ -2,9 +2,8 @@
   <tabs tabs="{{tabsData}}" activeTab="{{activeTab}}" swiperClass="tabs_swiper" bindtabclick="onTabClick" bindchange="onChange">
     <block wx:for="{{tabsData}}" wx:key="index">
       <view class="tab_content" data-set="{{item}}" slot="tab-content-{{index}}">
-        <assets-or-liabilities dataItem="{{item}}" bind:openDialog="openDialog" />
+        <assets-or-liabilities dataItem="{{item}}" bind:checkboxChange="checkboxChange" />
       </view>
     </block>
   </tabs>
-  <half-screen-dialog wx:if="{{show}}" accountData="{{accountData}}" bind:close="close" bind:checkboxChange="checkboxChange" />
 </view>

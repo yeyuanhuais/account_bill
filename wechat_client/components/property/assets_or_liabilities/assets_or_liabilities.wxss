@@ -1,9 +1,11 @@
-.swiper_box_item {
-  width: 90%;
-  margin: 0 auto;
+.assets {
+  width: 97%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
 }
 
-.swiper_box_item > .item {
+.assets > .item {
   min-height: 120rpx;
   align-items: center;
   border-radius: 15rpx;
@@ -14,63 +16,63 @@
 }
 
 /* 资产框样式 */
-.swiper_box_item .top {
+.assets .top {
   justify-content: space-between;
 }
 
-.swiper_box_item .top_left {
+.assets .top_left {
   font-size: 35rpx;
 }
 
-.swiper_box_item .top_right {
+.assets .top_right {
   display: flex;
   flex-flow: column wrap;
   font-size: 32rpx;
   align-items: flex-end;
 }
 
-.swiper_box_item .money {
-  color: #2761cc;
+.assets .money {
+  color: #76BA99;
   font-size: 38rpx;
 }
 
-.swiper_box_item .net_money {
+.assets .net_money {
   color: #3f3f3fe7;
   font-size: 28rpx;
 }
 
 /* 添加账户样式 */
-.swiper_box_item .add_box {
+.assets .add_box {
   margin-top: 30rpx;
 }
 
-.swiper_box_item .add_text {
+.assets .add_text {
   font-size: 35rpx;
   margin-left: 20rpx;
   color: #3f3f3fe7;
 }
 
-.swiper_box_item .acount_item {
+.assets .acount_item {
   margin-top: 30rpx;
   justify-content: space-between;
 }
-.swiper_box_item .acount_item .acount_item_left {
+.assets .acount_item .acount_item_left {
   font-size: 35rpx;
 }
 
-.swiper_box_item .acount_item .acount_item_right {
+.assets .acount_item .acount_item_right {
   display: flex;
   flex-flow: column wrap;
   font-size: 32rpx;
   align-items: flex-end;
 }
 
-.swiper_box_item .acount_item .money {
-  color: #2761cc;
+.assets .acount_item .money {
+  color: #76BA99;
   font-size: 38rpx;
 }
 
-.swiper_box_item .acount_item .net_money {
+.assets .acount_item .net_money {
   color: #3f3f3fe7;
   font-size: 28rpx;
 }

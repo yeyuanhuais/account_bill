@@ -12,37 +12,74 @@ Page({
           {
             id: 2,
             name: "现金",
-            icon: "weixinzhifu",
+            icon: "icon-xianjin",
             dec: "",
           },
           {
             id: 3,
             name: "储蓄卡",
-            icon: "weixinzhifu",
+            icon: "icon-yinhangka",
             dec: "",
           },
-        ],
-      },
-      {
-        id: 4,
-        name: "负债账户",
-        children: [
+          {
+            id: 4,
+            name: "支付宝",
+            icon: "icon-zhifubao",
+            dec: "",
+          },
           {
             id: 5,
-            name: "信用卡",
-            icon: "weixinzhifu",
+            name: "微信钱包",
+            icon: "icon-weixin",
             dec: "",
           },
           {
             id: 6,
-            name: "蚂蚁花呗",
-            icon: "weixinzhifu",
+            name: "储值卡",
+            icon: "icon-yinhangqia",
             dec: "",
+          },
+          {
+            id: 7,
+            name: "收账",
+            icon: "icon-shoukuan",
+            dec: "别人欠的钱",
+          },
+        ],
+      },
+      {
+        id: 8,
+        name: "负债账户",
+        children: [
+          {
+            id: 9,
+            name: "信用卡",
+            icon: "icon-salary",
+            dec: "",
+          },
+          {
+            id: 10,
+            name: "蚂蚁花呗",
+            icon: "icon-mayihuabei",
+            dec: "",
+          },
+          {
+            id: 11,
+            name: "京东白条",
+            icon: "icon-jingdongbaitiao",
+            dec: "",
+          },
+          {
+            id: 12,
+            name: "付账",
+            icon: "icon-qiankuan",
+            dec: "欠别人的钱",
           },
         ],
       },
     ],
   },
+  /* ======== 点击类型 并跳转路由 ======== */
   chooseType({
     currentTarget: {
       dataset: { id, name },
@@ -55,43 +92,4 @@ Page({
       },
     });
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {},
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
 });

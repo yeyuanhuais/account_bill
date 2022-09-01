@@ -1,17 +1,14 @@
-<view class="container">
-    <view class="userinfo">
-        <block wx:if="{{!hasUserInfo}}">
-            <button bindtap="getUserProfile">获取头像昵称</button>
-        </block>
-        <block wx:else>
-            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        </block>
-    </view>
-    {{windowInfo.pixelRatio}}
-    {{windowInfo.screenWidth}}
-    {{windowInfo.screenHeight}}
-    {{windowInfo.windowWidth}}
-    {{windowInfo.windowHeight}}
-    {{windowInfo.statusBarHeight}}
+<view class="more" bindtap="{{getUserProfile}}">
+  <view class="userinfo">
+    <image class="userinfo_avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo_nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view>提醒</view>
+  <view>收入支出分类</view>
+  <view>周期帐</view>
+  <view>月预算</view>
+  <view>每月开始于</view>
+  <view>导出</view>
+  <view>退出登录</view>
+  <button bindtap="getUserProfile">获取头像昵称</button>
 </view>
