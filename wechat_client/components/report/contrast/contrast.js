@@ -17,7 +17,7 @@ Component({
     ecBarMonth: {
       lazyLoad: true,
     },
-    time: { ...getStartEndTime() },
+    time: "2022-09",
     array: ["美国", "中国", "巴西", "日本"],
   },
   ready() {
@@ -100,16 +100,10 @@ Component({
       chart.setOption(option);
     },
     // 时间段选择
-    bindStartDateChange(e) {
+    bindDateChange(e) {
       let { time } = this.data;
       this.setData({
-        time: { ...getStartEndTime({ start: e.detail.value, end: time.endTime }) },
-      });
-    },
-    bindEndDateChange(e) {
-      let { time } = this.data;
-      this.setData({
-        time: { ...getStartEndTime({ start: time.startTime, end: e.detail.value }) },
+        time: e.detail.value,
       });
     },
     dispose: function (chart) {

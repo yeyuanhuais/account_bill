@@ -44,5 +44,18 @@ Component({
       });
       this.triggerEvent("checkboxChange", { childData: detail.newAccountData });
     },
+    /* ======== 点击类型跳转详情数据 ======== */
+    chooseType({
+      currentTarget: {
+        dataset: { id, title },
+      },
+    }) {
+      wx.navigateTo({
+        url: "/pages/property_item_detail/property_item_detail",
+        success: res => {
+          res.eventChannel.emit("propertyType", { id, title });
+        },
+      });
+    },
   },
 });

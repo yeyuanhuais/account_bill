@@ -14,9 +14,12 @@
   <view class="classify_item">
     <block wx:for="{{classifyItem}}" wx:key="index">
       <view class="item">
-        <text>{{item.name}}</text>
-        <text>{{item.value}}</text>
-        <text>{{item.ratio}}</text>
+        <view class="timetype">
+          <icon name="icon-xianjinqianbao" size="60" />
+          <text class="ml20">交通</text>
+        </view>
+        <text>37.5%</text>
+        <text>8888</text>
       </view>
     </block>
   </view>

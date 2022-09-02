@@ -11,7 +11,7 @@
     </view>
   </view>
   <block wx:for="{{dataItem.childData}}" wx:for-item="childItem" wx:for-index="childIndex" wx:key="childIndex">
-    <view wx:if="{{childItem.value}}" class="acount_item item" style="background-color:{{childItem.backgroundColor}}">
+    <view wx:if="{{childItem.value}}" class="acount_item item" style="background-color:{{childItem.backgroundColor}}" catchtap="chooseType" data-id="{{childItem.id}}" data-title="{{childItem.title}}">
       <view class="acount_item_left" bindtap="openDialog" data-item="{{dataItem.childData}}">
         <icon name="{{childItem.icon}}" size="60" style="margin:10rpx;coloe:{{childItem.backgroundColor}}" />
         <text>{{childItem.title}}</text>
