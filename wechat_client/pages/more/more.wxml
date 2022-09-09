@@ -3,12 +3,56 @@
     <image class="userinfo_avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     <text class="userinfo_nickname">{{userInfo.nickName}}</text>
   </view>
-  <view>提醒</view>
-  <view>收入支出分类</view>
-  <view>周期帐</view>
-  <view>月预算</view>
-  <view>每月开始于</view>
-  <view>导出</view>
-  <view>退出登录</view>
+  <cells>
+    <cell link url="./cell">
+      <view>
+        <icon name="icon-baryinhangka" />
+        设置提醒
+      </view>
+      <view slot="footer">说明文字</view>
+    </cell>
+    <cell link url="./cell">
+      <view>
+        <icon name="icon-baryinhangka" />
+        收入支出分类
+      </view>
+      <view slot="footer">说明文字</view>
+    </cell>
+    <cell link url="./cell">
+      <view>
+        <icon name="icon-baryinhangka" />
+        周期帐
+      </view>
+      <view slot="footer">说明文字</view>
+    </cell>
+    <cell link url="./cell">
+      <view>
+        <icon name="icon-baryinhangka" />
+        月预算
+      </view>
+      <view slot="footer">说明文字</view>
+    </cell>
+    <cell link url="./cell">
+      <view>
+        <icon name="icon-baryinhangka" />
+        每月开始于
+      </view>
+      <view slot="footer">说明文字</view>
+    </cell>
+    <cell>
+      <view>
+        <icon name="icon-baryinhangka" />
+        导出
+      </view>
+      <view slot="footer">说明文字</view>
+    </cell>
+    <cell>
+      <view>
+        <icon name="icon-baryinhangka" />
+        退出登录
+      </view>
+      <view slot="footer">说明文字</view>
+    </cell>
+  </cells>
   <button bindtap="getUserProfile">获取头像昵称</button>
 </view>

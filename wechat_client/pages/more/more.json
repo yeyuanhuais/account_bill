@@ -1,5 +1,8 @@
 {
     "component": true,
     "navigationBarTitleText": "更多",
-    "usingComponents": {}
+    "usingComponents": {
+        "cells":"/components/common/cells/cells",
+        "cell":"/components/common/cell/cell"
+    }
 }
