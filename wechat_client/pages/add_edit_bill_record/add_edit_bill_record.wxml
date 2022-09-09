@@ -1,0 +1,38 @@
+<view class="add_edit_bill_record">
+  <tabs tabs="{{tabsData}}" activeTab="{{activeTab}}" swiperClass="tabs_swiper" bindtabclick="onTabClick" bindchange="onChange" isCenter>
+    <block wx:for="{{tabsData}}" wx:key="index">
+      <view class="tab_content" data-set="{{item}}" slot="tab-content-{{index}}">
+        <view>
+          <view class="top">
+            <view class="top_left">
+              <icon name="{{formData.icon}}" size="70" />
+              <text>{{formData.name}}</text>
+            </view>
+            <view class="top_right">
+              <text>￥</text>
+              <view class="input-box">
+                <text>{{formData.value}}</text>
+                <input value="{{formData.value}}" bindinput="bindinputMoney" catchtap="catchtapInput" />
+              </view>
+            </view>
+          </view>
+          <view class="remark">
+            <text>备注</text>
+            <textarea value="{{formData.remark}}" bindinput="bindinputRemark" placeholder="备注" auto-height />
+          </view>
+        </view>
+        <income-expenditure-category class="middle" bindcategoryTap="categoryTap" />
+        <view class="bottom">
+          <view class="bottom_top">
+            <text class="border" catchtap="openDialog">{{formData.time}}</text>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="border picker_type">{{array[index]}}</view>
+            </picker>
+          </view>
+          <keyboard bindhandleSubmit="handleSubmitKeyboard" value="{{formData.value}}" />
+        </view>
+      </view>
+    </block>
+  </tabs>
+  <!-- <half-screen-dialog wx:if="{{show}}" bind:close="close" /> -->
+</view>

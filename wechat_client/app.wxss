@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 .tabs_swiper {
-  height: calc(100vh - 76rpx);
+  height: calc(100vh - 94rpx);
 }
 .tab_content {
   width: 100%;

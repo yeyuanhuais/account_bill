@@ -34,5 +34,8 @@ Component({
       wx.switchTab({ url: `/${path}` });
       this.setData({ selected: index });
     },
+    jump() {
+      wx.navigateTo({ url: "/pages/add_edit_bill_record/add_edit_bill_record" });
+    },
   },
 });

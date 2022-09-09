@@ -15,6 +15,7 @@ Component({
     activeTab: { type: Number, value: 0 }, //当前激活tab
     animation: { type: Boolean, value: true }, //是否使用动画
     duration: { type: Number, value: 500 }, //动画过渡时间
+    isCenter: { type: Boolean, value: false }, //动画过渡时间
   },
   data: {
     currentView: 0,

@@ -1,0 +1,8 @@
+<view class="income_expenditure_category">
+  <block wx:for="{{category}}" wx:key="index">
+    <view class="one" catchtap="onClick" data-item="{{item}}">
+      <icon name="{{item.icon}}" size="70" />
+      <text class="text">{{item.name}}</text>
+    </view>
+  </block>
+</view>

@@ -8,7 +8,7 @@
   <view class="bar">
     <view class="timeTypeChoose">
       <text>每日对比（近一个月）</text>
-      <picker class="picker_date" mode="date" fields="month" value="{{time}}" bindchange="bindStartDateChange">
+      <picker class="picker_date" mode="date" fields="month" value="{{time}}" bindchange="bindDateChange">
         <view class="picker">{{time}}</view>
       </picker>
     </view>
@@ -16,8 +16,8 @@
   </view>
   <view class="bar">
     <view class="timeTypeChoose">
-    <text>每月对比</text>
-      <picker class="picker_date" mode="date" fields="year" value="{{time}}" bindchange="bindStartDateChange">
+      <text>每月对比</text>
+      <picker class="picker_date" mode="date" fields="year" value="{{time}}" bindchange="bindDateChange">
         <view class="picker">{{time}}</view>
       </picker>
     </view>

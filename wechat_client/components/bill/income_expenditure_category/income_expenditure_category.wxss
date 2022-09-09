@@ -1,0 +1,17 @@
+.income_expenditure_category {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+.income_expenditure_category .one {
+  width: 20%;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 20rpx;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+.income_expenditure_category .one .text {
+  margin-top: 10rpx;
+}

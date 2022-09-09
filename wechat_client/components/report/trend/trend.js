@@ -28,6 +28,7 @@ Component({
       { name: "类别1", value: 2333, ratio: "30%" },
       { name: "类别1", value: 2333, ratio: "30%" },
     ],
+    time: "2022-09",
   },
   ready() {
     this.ecLineDateComponent = this.selectComponent("#mychart-dom-line");
@@ -113,16 +114,10 @@ Component({
       chart.setOption(option);
     },
     // 时间段选择
-    bindStartDateChange(e) {
+    bindDateChange(e) {
       let { time } = this.data;
       this.setData({
-        time: { ...getStartEndTime({ start: e.detail.value, end: time.endTime }) },
-      });
-    },
-    bindEndDateChange(e) {
-      let { time } = this.data;
-      this.setData({
-        time: { ...getStartEndTime({ start: time.startTime, end: e.detail.value }) },
+        time: e.detail.value,
       });
     },
     dispose: function (chart) {

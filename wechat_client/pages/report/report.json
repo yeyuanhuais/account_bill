@@ -2,9 +2,8 @@
     "component": true,
     "navigationBarTitleText": "报表",
     "usingComponents": {
-        "tabs": "../../components/common/tabs/tabs",
-        "classify": "../../components/report/classify/classify",
-        "contrast": "../../components/report/contrast/contrast",
-        "trend": "../../components/report/trend/trend"
+        "classify": "/components/report/classify/classify",
+        "contrast": "/components/report/contrast/contrast",
+        "trend": "/components/report/trend/trend"
     }
 }
