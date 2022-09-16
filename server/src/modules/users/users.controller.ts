@@ -45,7 +45,7 @@ export class UsersController {
     type: CreateUserDto,
   })
   @ApiOperation({ summary: '注册用户', description: '注册用户' })
-  register(@Body() createUserDto: any) {
+  register(@Body() createUserDto: CreateUserDto) {
     return this.usersService.register(createUserDto);
   }
 
@@ -62,7 +62,7 @@ export class UsersController {
   @Get(':id')
   @ApiOperation({ summary: '根据ID查找用户' })
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.usersService.findOneById(+id);
   }
 
   @Patch(':id')

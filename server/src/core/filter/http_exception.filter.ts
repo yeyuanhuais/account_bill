@@ -15,16 +15,14 @@ export class HttpExceptionFilter implements ExceptionFilter {
       exception instanceof HttpException
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR; // 获取异常状态码
-
     // 设置错误信息
     const message = exception.message
       ? exception.message
       : `${status >= 500 ? 'Service Error' : 'Client Error'}`;
-    const errorResponse = {
-      data: {},
-      message: message,
-      code: -1,
-    };
+    const errorResponse =
+      exception instanceof HttpException
+        ? exception.getResponse()
+        : { code: -1, message }; // 获取异常数据
 
     // 设置返回的状态码， 请求头，发送错误信息
     response.status(status);

@@ -59,7 +59,6 @@ Page({
     let { formData } = this.data;
     const eventChannel = this.getOpenerEventChannel();
     eventChannel.on("propertyType", data => {
-      console.log("%c data", "font-size:13px; background:pink; color:#bf2c9f;", data);
       this.setData({ formData: { ...formData, ...data } });
     });
   },

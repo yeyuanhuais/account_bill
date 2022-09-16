@@ -59,7 +59,6 @@ Component({
         //滚动模式
         //当年当月当天 滚动到制定日期 否则滚动到当月1日
         scrollCalendar(year, month, date) {
-            console.log(year, month, date)
             var that = this,
                 scrollLeft = 0;
             wx.getSystemInfo({
@@ -174,7 +173,6 @@ Component({
             this.setData({
                 thisMonthDays
             })
-            // console.log('thisMonthDays', thisMonthDays)
         },
         //获取当月空出的天数
         createEmptyGrids: function (year, month) {

@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { CustomerException } from 'src/core/exceptions/customer.exception';
+import { encryptPassword, makeSalt } from 'src/utils/cryptogram';
 import { CreateUserDto } from './dto/create_user.dto';
 import { UpdateUserDto } from './dto/update_user.dto';
 import { User, UserDocument } from './schemas/user.schema';
@@ -26,17 +28,12 @@ export class UsersService {
     return users;
   }
 
-  async findOne(id: number): Promise<User> {
+  async findOneById(id: number): Promise<User> {
     const user = await this.usersModel.findById(id);
     return user;
   }
-  async findOneByAccount(account: string): Promise<User> {
-    const user = await this.usersModel.findOne({ account });
-    console.log(
-      '%c user',
-      'font-size:13px; background:pink; color:#bf2c9f;',
-      user,
-    );
+  async findOne(query: object): Promise<User> {
+    const user = await this.usersModel.findOne(query);
     return user;
   }
 
@@ -54,8 +51,22 @@ export class UsersService {
   }
 
   async register(body: any): Promise<any> {
-    const { account } = body;
-    const user = await this.findOneByAccount(account);
-    return '成功';
+    const { account, password, rePassword } = body;
+    if (password !== rePassword) {
+      throw new CustomerException(1, '两次密码输入不一致');
+    }
+    const user = await this.findOne({ account });
+    if (user && user.constructor === Object && Object.keys(user).length !== 0) {
+      console.log(
+        '%c user',
+        'font-size:13px; background:pink; color:#bf2c9f;',
+        user,
+      );
+      throw new CustomerException(1, '用户已存在');
+    }
+    const salt = makeSalt(); // 制作密码盐
+    const hashPwd = encryptPassword(password, salt); // 加密密码
+    const ans = await this.create({ ...body, password: hashPwd });
+    // return '成功';
   }
 }
