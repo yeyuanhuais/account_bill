@@ -29,5 +29,7 @@ export class User {
   openid: string;
   @Prop()
   session_key: string;
+  @Prop()
+  avatar_url: string;
 }
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -6,6 +6,7 @@ import { CreateUserDto } from "./dto/create_user.dto";
 import { FindUserDto } from "./dto/find_user.dto";
 import { LoginUserDto } from "./dto/login.dto";
 import { UpdateUserDto } from "./dto/update_user.dto";
+import { WxLoginUserDto } from "./dto/wx_login.dto";
 import { UsersService } from "./users.service";
 
 @Controller("users")
@@ -82,13 +83,13 @@ export class UsersController {
   @Post("wxLogin")
   @Public()
   @ApiOperation({ summary: "微信登录用户", description: "微信用户" })
-  async wxLogin(@Body() loginUserDto: LoginUserDto) {
-    const { loginMethod, code } = loginUserDto;
-    if (loginMethod === "weixin") {
+  async wxLogin(@Body() wxLoginUserDto: WxLoginUserDto) {
+    const { login_method, code, account, avatar_url } = wxLoginUserDto;
+    if (login_method === "weixin") {
       const result = await this.usersService.weixinLogin(code);
       const findUser = await this.usersService.findOne({ openid: result.openid });
       if (!findUser) {
-        const user = await this.usersService.wxRegister(result);
+        const user = await this.usersService.wxRegister({ ...result, ...wxLoginUserDto });
         return this.authService.certificate(user);
       } else {
         return this.authService.certificate(findUser);

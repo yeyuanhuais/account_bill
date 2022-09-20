@@ -10,6 +10,7 @@ interface CertificateUser {
   _id?: mongoose.Types.ObjectId;
   openid?: string;
   session_key?: string;
+  avatar_url?: string;
 }
 
 @Injectable()
@@ -43,7 +44,7 @@ export class AuthService {
     };
     try {
       const token = this.jwtService.sign(payload);
-      return { token };
+      return { token, avatar_url: user.avatar_url, account: user.account };
     } catch (error) {
       throw new CustomerException(3, "token生成失败");
     }

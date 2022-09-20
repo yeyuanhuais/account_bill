@@ -1,20 +1,36 @@
+import { request } from "../../http/request";
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    windowInfo: {},
+    user_info: {},
   },
-  onLoad() {},
-  getPhoneNumber(e) {
-    console.log("%c e", "font-size:13px; background:pink; color:#bf2c9f;", e);
+  onLoad() {
+    const user = wx.getStorageSync("user");
+    if (user) {
+      this.setData({
+        user_info: { account: user.account, avatar_url: user.avatar_url },
+      });
+    } else {
+      this.setData({
+        user_info: null,
+      });
+    }
+  },
+  getUserProfile(e) {
     wx.getUserProfile({
-      desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      desc: "登录用户信息", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true,
+        const { nickName, avatarUrl } = res.userInfo;
+        // 登录
+        wx.login({
+          success: async value => {
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            let res = await request("/users/wxLogin", "POST", { code: value.code, login_method: "weixin", account: nickName, avatar_url: avatarUrl });
+            this.setData({
+              user_info: { account: res.account, avatar_url: res.avatar_url },
+            });
+            wx.setStorageSync("user", res);
+          },
         });
-        wx.setStorageSync("token", res);
       },
     });
   },

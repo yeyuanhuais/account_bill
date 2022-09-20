@@ -1,13 +1,11 @@
 <view class="more">
-  <view class="userinfo" wx:if="{{Object.keys(userInfo).length>0}}">
-    <image class="userinfo_avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-    <text class="userinfo_nickname">{{userInfo.nickName}}</text>
+  <view class="login" wx:if="{{user_info.account}}">
+    <image class="user_avatar" src="{{user_info.avatar_url}}" mode="cover"></image>
+    <text class="user_nickname">{{user_info.account}}</text>
   </view>
-  <view class="no_login" wx:else>
+  <view class="no_login" wx:else bindtap="getUserProfile">
     <icon class="user_avatar" size="140" name="icon-avatar" />
-    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
-      <text class="user_nickname">未登录</text>
-    </button>
+    <text class="user_nickname">未登录</text>
   </view>
   <cells>
     <cell link url="./cell">

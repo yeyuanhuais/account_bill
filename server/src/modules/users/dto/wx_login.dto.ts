@@ -1,7 +1,7 @@
 import { ApiPropertyOptional } from "@nestjs/swagger";
 import { IsOptional, IsString } from "class-validator";
 
-export class LoginUserDto {
+export class WxLoginUserDto {
   @ApiPropertyOptional({
     description: "账号",
     default: "18160999831"
@@ -11,12 +11,12 @@ export class LoginUserDto {
   readonly account?: string;
 
   @ApiPropertyOptional({
-    description: "密码",
-    default: "18160999831"
+    description: "头像地址",
+    default: "https://thirdwx.qlogo.cn/mmopen/vi_32/XUzvuoBCNx3X9hCGQDvDtQNyElkgsGeSzpLqdWoZ3q2ady6K4RMnvd6KPibhicGyVJQRBVTC4AYCDhj53hNN1tGg/132"
   })
   @IsString({ message: "密码必须是字符串" })
   @IsOptional()
-  readonly password?: string;
+  readonly avatar_url?: string;
 
   @ApiPropertyOptional({
     description: "微信小程序登录获取的登录凭证",

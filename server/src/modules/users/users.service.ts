@@ -80,7 +80,7 @@ export class UsersService {
         ...body,
         password: hashPwd,
         salt,
-        login_method: "weixin"
+        login_method: "weixin",
       });
       return createUser.save();
     } catch (error) {

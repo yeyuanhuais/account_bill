@@ -1,5 +1,4 @@
 let env = wx.getAccountInfoSync().miniProgram.envVersion;
-console.log("%c env", "font-size:13px; background:pink; color:#bf2c9f;", env);
 const { baseUrl } = env === "develop" ? require("./env.js").dev : require("./env.js").prod;
 module.exports = {
   // 二次封装wx.request
@@ -31,12 +30,12 @@ module.exports = {
               duration: 2000,
               mask: true,
             });
-            return false
+            return false;
           }
           resolve(data.data);
         },
         fail: error => {
-          console.log("%c error", "font-size:13px; background:pink; color:#bf2c9f;", error);
+          wx.hideLoading();
           reject(error);
         },
       });
