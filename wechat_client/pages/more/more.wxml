@@ -1,7 +1,13 @@
-<view class="more" bindtap="{{getUserProfile}}">
-  <view class="userinfo">
+<view class="more">
+  <view class="userinfo" wx:if="{{Object.keys(userInfo).length>0}}">
     <image class="userinfo_avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     <text class="userinfo_nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="no_login" wx:else>
+    <icon class="user_avatar" size="140" name="icon-avatar" />
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <text class="user_nickname">未登录</text>
+    </button>
   </view>
   <cells>
     <cell link url="./cell">
@@ -54,5 +60,4 @@
       <view slot="footer">说明文字</view>
     </cell>
   </cells>
-  <button bindtap="getUserProfile">获取头像昵称</button>
 </view>
