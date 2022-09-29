@@ -10,86 +10,86 @@ Page({
         name: "资产账户",
         children: [
           {
-            id: 2,
+            id: 1,
             name: "现金",
             icon: "icon-xianjin",
-            dec: "",
+            dec: ""
+          },
+          {
+            id: 2,
+            name: "储蓄卡",
+            icon: "icon-yinhangka",
+            dec: ""
           },
           {
             id: 3,
-            name: "储蓄卡",
-            icon: "icon-yinhangka",
-            dec: "",
+            name: "支付宝",
+            icon: "icon-zhifubao",
+            dec: ""
           },
           {
             id: 4,
-            name: "支付宝",
-            icon: "icon-zhifubao",
-            dec: "",
+            name: "微信钱包",
+            icon: "icon-weixin",
+            dec: ""
           },
           {
             id: 5,
-            name: "微信钱包",
-            icon: "icon-weixin",
-            dec: "",
+            name: "储值卡",
+            icon: "icon-yinhangqia",
+            dec: ""
           },
           {
             id: 6,
-            name: "储值卡",
-            icon: "icon-yinhangqia",
-            dec: "",
-          },
-          {
-            id: 7,
             name: "收账",
             icon: "icon-shoukuan",
-            dec: "别人欠的钱",
-          },
-        ],
+            dec: "别人欠的钱"
+          }
+        ]
       },
       {
-        id: 8,
+        id: 2,
         name: "负债账户",
         children: [
           {
-            id: 9,
+            id: 7,
             name: "信用卡",
             icon: "icon-salary",
-            dec: "",
+            dec: ""
+          },
+          {
+            id: 8,
+            name: "蚂蚁花呗",
+            icon: "icon-mayihuabei",
+            dec: ""
+          },
+          {
+            id: 9,
+            name: "京东白条",
+            icon: "icon-jingdongbaitiao",
+            dec: ""
           },
           {
             id: 10,
-            name: "蚂蚁花呗",
-            icon: "icon-mayihuabei",
-            dec: "",
-          },
-          {
-            id: 11,
-            name: "京东白条",
-            icon: "icon-jingdongbaitiao",
-            dec: "",
-          },
-          {
-            id: 12,
-            name: "付账",
+            name: "欠账",
             icon: "icon-qiankuan",
-            dec: "欠别人的钱",
-          },
-        ],
-      },
-    ],
+            dec: "欠别人的钱"
+          }
+        ]
+      }
+    ]
   },
   /* ======== 点击类型 并跳转路由 ======== */
   chooseType({
     currentTarget: {
-      dataset: { id, name },
-    },
+      dataset: { item, asset_type }
+    }
   }) {
     wx.navigateTo({
       url: "/pages/add_edit_account/add_edit_account",
       success: res => {
-        res.eventChannel.emit("accountType", { typeId: id, typeName: name });
-      },
+        res.eventChannel.emit("accountType", { type: item.id, type_name: item.name, icon: item.icon, asset_type });
+      }
     });
-  },
+  }
 });

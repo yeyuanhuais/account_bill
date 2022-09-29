@@ -5,7 +5,7 @@
   </view>
   <view class="section section_gap">
     <view class="section__title">账户类型：</view>
-    <input name="typeName" placeholder="账户类型" type="text" confirm-type="next" disabled value="{{formData.typeName}}" />
+    <input name="type_name" placeholder="账户类型" type="text" confirm-type="next" disabled value="{{formData.type_name}}" />
   </view>
   <view class="section">
     <view class="section__title">金额：</view>
@@ -15,11 +15,23 @@
     <view class="section__title">选择账户颜色：</view>
     <view style="background:{{formData.color}};">
       <input class="color_block" name="color" placeholder="账户颜色" type="text" confirm-type="next" value="{{formData.color}}" catchtap="toPick" />
+      <color-picker bindchangeColor="pickColor" initColor="{{formData.color}}" show="{{pick}}" />
     </view>
+  </view>
+  <view class="section section_gap hidden">
+    <view class="section__title">asset_type</view>
+    <input name="asset_type" placeholder="asset_type" type="number" confirm-type="next" disabled value="{{formData.asset_type}}" />
+  </view>
+  <view class="section section_gap hidden">
+    <view class="section__title">type</view>
+    <input name="type" placeholder="type" type="number" confirm-type="next" disabled value="{{formData.type}}" />
+  </view>
+  <view class="section section_gap hidden">
+    <view class="section__title">icon</view>
+    <input name="icon" placeholder="icon" type="text" confirm-type="next" disabled value="{{formData.icon}}" />
   </view>
   <view class="btn-area">
     <button formType="submit" type="primary">提交</button>
     <button formType="reset">重置</button>
   </view>
-  <color-picker bindchangeColor="pickColor" initColor="{{formData.color}}" show="{{pick}}" />
 </form>

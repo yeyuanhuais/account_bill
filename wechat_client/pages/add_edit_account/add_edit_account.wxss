@@ -20,6 +20,9 @@
   color: #ffffff;
   mix-blend-mode: difference;
 }
+.hidden {
+  display: none;
+}
 
 .btn-area {
   display: flex;

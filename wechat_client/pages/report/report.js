@@ -13,11 +13,9 @@ Page({
       },
     ], //tab数据
   },
-  onTabClick(e) {
-    const index = e.detail.index;
-    this.setData({
-      activeTab: index,
-    });
+  /* ======== tab点击 ======== */
+  onTabClick({ detail: { index } }) {
+    this.setData({ activeTab: index });
   },
 
   onChange(e) {

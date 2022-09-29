@@ -4,26 +4,19 @@ import { UsersService } from "../users/users.service";
 import { JwtService } from "@nestjs/jwt";
 import { encryptPassword } from "src/utils/cryptogram";
 import { CustomerException } from "src/core/exceptions/customer.exception";
-import mongoose from "mongoose";
-interface CertificateUser {
-  account?: string;
-  _id?: mongoose.Types.ObjectId;
-  openid?: string;
-  session_key?: string;
-  avatar_url?: string;
-}
+import { CertificateUser, ValidateUser } from "./interface/user_jwt.interface";
 
 @Injectable()
 export class AuthService {
   constructor(private readonly usersService: UsersService, private readonly jwtService: JwtService) {}
 
-  async validateUser({ account, password }): Promise<any> {
+  async validateUser({ account, password }: ValidateUser): Promise<any> {
     const user = await this.usersService.findOne({ account });
     if (user && Object.keys(user).length === 0) {
       throw new CustomerException(3, "该用户不存在");
     }
-    const hashedPassword = user.password;
-    const salt = user.salt;
+    const hashedPassword = user?.password;
+    const salt = user?.salt;
     // 通过密码盐，加密传参，再与数据库里的比较，判断是否相等
     const hashPassword = encryptPassword(password, salt);
     if (hashedPassword === hashPassword) {
@@ -38,7 +31,7 @@ export class AuthService {
   async certificate(user: CertificateUser) {
     const payload = {
       account: user?.account,
-      id: user._id.toString(),
+      id: (user._id || "").toString(),
       openid: user?.openid,
       session_key: user?.session_key
     };

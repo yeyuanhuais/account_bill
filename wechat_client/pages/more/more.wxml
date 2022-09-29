@@ -15,12 +15,11 @@
       </view>
       <view slot="footer">说明文字</view>
     </cell>
-    <cell link url="./cell">
+    <cell link url="/pages/income_expenditure_classification/income_expenditure_classification">
       <view>
         <icon name="icon-baryinhangka" />
         收入支出分类
       </view>
-      <view slot="footer">说明文字</view>
     </cell>
     <cell link url="./cell">
       <view>

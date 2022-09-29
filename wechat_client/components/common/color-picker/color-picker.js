@@ -28,7 +28,7 @@ Component({
       })
     },
     ready() {
-      
+
       const $ = this.createSelectorQuery()
       const target = $.select('.target')
       target.boundingClientRect()
@@ -112,7 +112,7 @@ Component({
       }
     },
     preventdefault:function() {
-      
+
     },
     hsv2rgb: function (h, s, v) {
       let hsv_h = (h / 360).toFixed(2);

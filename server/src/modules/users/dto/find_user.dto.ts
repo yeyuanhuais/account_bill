@@ -6,32 +6,32 @@ export class FindUserDto {
     description: "账号",
     default: "18160999831"
   })
-  private readonly account: string;
+  readonly account: string;
 
   @ApiProperty({
     description: "密码",
     default: "18160999831"
   })
   @Exclude()
-  private readonly password: string;
+  readonly password: string;
 
   @ApiPropertyOptional({
     description: "手机号",
     default: "18160999831"
   })
-  private readonly phone?: string;
+  readonly phone?: string;
 
   @ApiPropertyOptional({
     description: "邮件",
     default: "18160999831@qq.com"
   })
-  private readonly email?: string;
+  readonly email?: string;
 
   @ApiPropertyOptional({
     description: "状态 0-停用 1-正常",
     default: "1"
   })
-  private readonly status?: number = 1;
+  readonly status?: number = 1;
 
   @ApiPropertyOptional({
     description: "创建时间",
@@ -49,5 +49,5 @@ export class FindUserDto {
     default: "1"
   })
   @Exclude()
-  private readonly salt?: string;
+  readonly salt?: string;
 }

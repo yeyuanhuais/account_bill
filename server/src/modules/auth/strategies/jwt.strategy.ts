@@ -3,11 +3,12 @@ import { ExtractJwt, Strategy } from "passport-jwt";
 import { PassportStrategy } from "@nestjs/passport";
 import { Injectable } from "@nestjs/common";
 import { jwtConstants } from "../consts/constants";
-
+import { UserJwt } from "../interface/user_jwt.interface";
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {
     super({
+      // 前端请求头header 就要有这个字段Authorization:`Bearer ${token}`
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
       secretOrKey: jwtConstants.secret
@@ -15,11 +16,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   // JWT验证 - Step 4: 被守卫调用
-  async validate(payload: any) {
-    console.log("%c payload", "font-size:13px; background:pink; color:#bf2c9f;", payload);
-    return {
-      account: payload.account,
-      id: payload.id
-    };
+  async validate(payload: UserJwt) {
+    return payload;
   }
 }

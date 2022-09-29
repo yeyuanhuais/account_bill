@@ -9,7 +9,7 @@ export class CreateUserDto {
   })
   @IsNotEmpty({ message: "账号不能为空" })
   @IsString({ message: "账号必须是字符串" })
-  private readonly account: string;
+  readonly account: string;
 
   @ApiProperty({
     description: "密码",
@@ -17,7 +17,7 @@ export class CreateUserDto {
   })
   @IsNotEmpty({ message: "密码不能为空" })
   @IsString({ message: "密码必须是字符串" })
-  private readonly password: string;
+  readonly password: string;
 
   @ApiProperty({
     description: "确认密码",
@@ -25,7 +25,7 @@ export class CreateUserDto {
   })
   @IsNotEmpty({ message: "确认密码不能为空" })
   @IsString({ message: "确认密码必须是字符串" })
-  private readonly rePassword: string;
+  readonly rePassword: string;
 
   @ApiPropertyOptional({
     description: "手机号",
@@ -34,7 +34,7 @@ export class CreateUserDto {
   @IsMobilePhone("zh-CN", {}, { message: "手机号码格式错误" })
   @IsString({ message: "手机号必须是字符串" })
   @IsOptional()
-  private readonly phone?: string;
+  readonly phone?: string;
 
   @ApiPropertyOptional({
     description: "邮件",
@@ -43,7 +43,7 @@ export class CreateUserDto {
   @IsEmail({}, { message: "邮箱格式错误" })
   @IsString({ message: "邮件必须是字符串" })
   @IsOptional()
-  private readonly email?: string;
+  readonly email?: string;
 
   @ApiPropertyOptional({
     description: "状态 0-停用 1-正常",
@@ -57,19 +57,18 @@ export class CreateUserDto {
     }
   )
   @Type(() => Number)
-  private readonly status?: number = 1;
+  readonly status?: number = 1;
 
   @ApiPropertyOptional({
     description: "登录方式",
     default: "1"
   })
   @IsString({ message: "登录方式必须是字符串" })
-  private readonly login_method: string;
+  readonly login_method: string;
 
   @ApiPropertyOptional({
     description: "密码盐",
     default: "1"
   })
-  private readonly salt?: string;
-
+  readonly salt?: string;
 }

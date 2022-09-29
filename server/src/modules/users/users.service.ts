@@ -14,12 +14,12 @@ import { WxCreateUserDto } from "./dto/wx_create_user.dto";
 export class UsersService {
   constructor(@InjectModel("Users") private readonly usersModel: Model<UserDocument>, private configService: ConfigService) {}
 
-  async create(createUserDto: CreateUserDto): Promise<any> {
+  async create(createUserDto: CreateUserDto): Promise<User> {
     const createUser = new this.usersModel(createUserDto);
     return createUser.save();
   }
 
-  async findAll(query): Promise<User[]> {
+  async findAll(query: { pageSize: number; pageNum: number }): Promise<User[]> {
     const users = await this.usersModel
       .find()
       .skip(query.pageSize * query.pageNum)
@@ -29,11 +29,11 @@ export class UsersService {
     return users;
   }
 
-  async findOneById(id: number): Promise<User> {
+  async findOneById(id: number): Promise<User | null> {
     const user = await this.usersModel.findById(id);
     return user;
   }
-  async findOne(query: object): Promise<any> {
+  async findOne(query: object): Promise<User | null> {
     const user = await this.usersModel.findOne(query);
     return user;
   }
@@ -80,7 +80,7 @@ export class UsersService {
         ...body,
         password: hashPwd,
         salt,
-        login_method: "weixin",
+        login_method: "weixin"
       });
       return createUser.save();
     } catch (error) {

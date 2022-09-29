@@ -9,7 +9,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       wx.showLoading({
         title: "正在加载中...",
-        mask: true,
+        mask: true
       });
       let token = wx.getStorageSync("user")?.token;
       let _url = `${baseUrl}${url}`;
@@ -19,26 +19,32 @@ module.exports = {
         method: method,
         header: {
           "content-type": "application/json",
-          token: token || "",
+          Authorization: `Bearer ${token || ""}`
         },
         success: ({ data }) => {
           wx.hideLoading();
-          if (data.code !== 0) {
+          if (data.code === 401 || data.statusCode === 401) {
+            wx.setStorageSync("user", null);
+            wx.switchTab({
+              url: "/pages/more/more",
+            });
+          } else if (data.code !== 0) {
             wx.showToast({
               title: data.message,
               icon: "none",
               duration: 2000,
-              mask: true,
+              mask: true
             });
             return false;
           }
-          resolve(data.data);
+          resolve(data.data || true);
         },
         fail: error => {
+          console.log("%c error", "font-size:13px; background:pink; color:#bf2c9f;", error);
           wx.hideLoading();
           reject(error);
-        },
+        }
       });
     });
-  },
+  }
 };

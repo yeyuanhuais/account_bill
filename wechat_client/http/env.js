@@ -3,7 +3,7 @@
 module.exports = {
   //开发环境
   dev: {
-    baseUrl: "http://172.31.0.172:3100/v1",
+    baseUrl: "http://localhost:3100/v1",
   },
   //线上url
   prod: {

@@ -1,7 +1,4 @@
 {
   "navigationBarTitleText": "选择账户类型",
-  "usingComponents": {
-    "mp-cells": "weui-miniprogram/cells/cells",
-    "mp-cell": "weui-miniprogram/cell/cell"
-  }
+  "usingComponents": {}
 }

@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    dataItem: Object,
+    dataItem: Object
   },
 
   /**
@@ -12,9 +12,11 @@ Component({
    */
   data: {
     show: false, //半屏弹框是否显示
-    accountData: [], //弹框内多选框的选项
+    accountData: [] //弹框内多选框的选项
   },
-
+  ready() {
+    console.log("%c dataItem", "font-size:13px; background:pink; color:#bf2c9f;", this.properties.dataItem);
+  },
   /**
    * 组件的方法列表
    */
@@ -23,7 +25,7 @@ Component({
     openDialog({ currentTarget }) {
       this.setData({
         show: true,
-        accountData: currentTarget.dataset.item,
+        accountData: currentTarget.dataset.item
       });
     },
     /* ======== 添加账户 ======== */
@@ -34,28 +36,28 @@ Component({
     close() {
       this.setData({
         show: false,
-        accountData: [],
+        accountData: []
       });
     },
     /* ======== 账户多选框点击事件 ======== */
     checkboxChange({ detail }) {
       this.setData({
-        accountData: detail.newAccountData,
+        accountData: detail.newAccountData
       });
       this.triggerEvent("checkboxChange", { childData: detail.newAccountData });
     },
     /* ======== 点击类型跳转详情数据 ======== */
     chooseType({
       currentTarget: {
-        dataset: { id, title },
-      },
+        dataset: { id, title }
+      }
     }) {
       wx.navigateTo({
         url: "/pages/property_item_detail/property_item_detail",
         success: res => {
           res.eventChannel.emit("propertyType", { id, title });
-        },
+        }
       });
-    },
-  },
+    }
+  }
 });

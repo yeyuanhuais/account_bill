@@ -6,8 +6,8 @@ Component({
    */
   properties: {
     value: {
-      type: String,
-    },
+      type: String
+    }
   },
 
   /**
@@ -17,18 +17,18 @@ Component({
     KeyboardKeys: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "C", "0", "."],
     screenData: "",
     keyHidden: false,
-    isCalculate: false, //是否需要计算
+    isCalculate: false //是否需要计算
   },
   observers: {
     screenData: function (newValue) {
       if (newValue.indexOf("+") > -1 || newValue.indexOf("-") > -1) this.setData({ isCalculate: true });
       else this.setData({ isCalculate: false });
       this.triggerEvent("handleSubmit", { data: { value: newValue } });
-    },
+    }
   },
   ready() {
     this.setData({
-      screenData: this.properties.value,
+      screenData: this.properties.value
     });
   },
   /**
@@ -43,14 +43,14 @@ Component({
         // 退格
         if (!screenData || screenData === "0") {
           this.setData({
-            screenData: "0",
+            screenData: "0"
           });
           return;
         }
         let money = screenData.substring(0, screenData.length - 1);
         if (!money || money === "-" || money === "+") money = "0";
         this.setData({
-          screenData: money,
+          screenData: money
         });
       } else if (key === "C") {
         //清屏C
@@ -64,7 +64,7 @@ Component({
           money = screenData + key;
         }
         this.setData({
-          screenData: money,
+          screenData: money
         });
       }
     },
@@ -72,11 +72,11 @@ Component({
       const { screenData, isCalculate } = this.data;
       let answers = calculatorStrings(screenData);
       if (isCalculate) {
-        this.triggerEvent("handleSubmit", { data: { remark: screenData, value: answers } });
+        this.triggerEvent("handleSubmit", { data: { remark: screenData, value: answers, isCalculate } });
       } else {
-        this.triggerEvent("handleSubmit", { data: { value: screenData } });
+        this.triggerEvent("handleSubmit", { data: { value: screenData, isCalculate } });
       }
       this.setData({ isCalculate: false, screenData: answers });
-    },
-  },
+    }
+  }
 });

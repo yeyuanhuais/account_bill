@@ -1,55 +1,60 @@
+import { request } from "../../http/request";
 Page({
   data: {
     tabsData: [
       {
         title: "收入",
+        id: 1
       },
       {
         title: "支出",
-      },
+        id: 2
+      }
     ], //资产数据
     activeTab: 0, //当前tabs值
-    formData: { value: "0", time: "2022-09-05", remark: "", icon: "icon-food" },
-    show: false, //半屏弹框是否显示
+    formData: { bill_value: "0", time: "2022-09-05", remark: "", icon: "", name: "" },
+    dialogVis: false, //半屏弹框是否显示
     array: ["微信", "支付宝", "钱包", "银行卡"],
+    activeTab: 0
   },
 
-  onTabClick(e) {
-    const index = e.detail.index;
-    this.setData({
-      activeTab: index,
-    });
+  /* ======== tab点击 ======== */
+  onTabClick({ detail: { index } }) {
+    this.setData({ activeTab: index });
   },
 
-  onChange(e) {
-    const index = e.detail.index;
-    this.setData({
-      activeTab: index,
-    });
-  },
-  categoryTap({ detail }) {
+  categoryTap({ detail: { data } }) {
     const { formData } = this.data;
     this.setData({
-      formData: { ...formData, ...detail.data },
+      formData: { ...formData, ...data }
     });
   },
   /* ======== 键盘点击确定 ======== */
-  handleSubmitKeyboard({ detail }) {
+  async handleSubmitKeyboard({
+    detail: {
+      data: { value }
+    }
+  }) {
     const { formData } = this.data;
     this.setData({
-      formData: { ...formData, ...detail.data },
+      formData: { ...formData, bill_value: value }
     });
+    if (value.indexOf("+") > -1 || value.indexOf("-") > -1) {
+    } else {
+      let res = await request("/classifies/findAll", "GET", {});
+      if (!res) return;
+    }
   },
   bindinputMoney({ detail }) {
     const { formData } = this.data;
     this.setData({
-      formData: { ...formData, value: detail.value },
+      formData: { ...formData, bill_value: detail.value }
     });
   },
   bindinputRemark({ detail }) {
     const { formData } = this.data;
     this.setData({
-      formData: { ...formData, remark: detail.value },
+      formData: { ...formData, remark: detail.value }
     });
   },
   catchtapInput() {
@@ -58,18 +63,18 @@ Page({
   /* ======== 弹窗打开 ======== */
   openDialog() {
     this.setData({
-      show: true,
+      dialogVis: true
     });
   },
   /* ======== 弹窗关闭  选择展示账户点击确定 ======== */
   close() {
     this.setData({
-      show: false,
+      dialogVis: false
     });
   },
   bindPickerChange: function (e) {
     this.setData({
-      index: e.detail.value,
+      index: e.detail.value
     });
   },
   /**
@@ -110,5 +115,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage() {},
+  onShareAppMessage() {}
 });

@@ -1,5 +1,6 @@
+import { CustomerException } from "@/core/exceptions/customer.exception";
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from "@nestjs/common";
-import { ApiBearerAuth, ApiBody, ApiOperation, ApiQuery, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { ApiBody, ApiOperation, ApiQuery, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { Public } from "src/core/decorators/public.decorator";
 import { AuthService } from "../auth/auth.service";
 import { CreateUserDto } from "./dto/create_user.dto";
@@ -11,7 +12,6 @@ import { UsersService } from "./users.service";
 
 @Controller("users")
 @ApiTags("用户模块")
-@ApiBearerAuth()
 export class UsersController {
   constructor(private readonly usersService: UsersService, private readonly authService: AuthService) {}
 
@@ -30,7 +30,7 @@ export class UsersController {
   @ApiQuery({ name: "pageSize", required: true })
   @ApiQuery({ name: "pageNum", required: true })
   @ApiResponse({ type: FindUserDto })
-  async findAll(@Query() query) {
+  async findAll(@Query() query: any) {
     const users = await this.usersService.findAll(query);
     return users;
   }
@@ -79,12 +79,13 @@ export class UsersController {
     if (authResult) {
       return this.authService.certificate(authResult);
     }
+    throw new CustomerException(3, "用户不存在");
   }
   @Post("wxLogin")
   @Public()
   @ApiOperation({ summary: "微信登录用户", description: "微信用户" })
   async wxLogin(@Body() wxLoginUserDto: WxLoginUserDto) {
-    const { login_method, code, account, avatar_url } = wxLoginUserDto;
+    const { login_method, code } = wxLoginUserDto;
     if (login_method === "weixin") {
       const result = await this.usersService.weixinLogin(code);
       const findUser = await this.usersService.findOne({ openid: result.openid });
@@ -95,5 +96,6 @@ export class UsersController {
         return this.authService.certificate(findUser);
       }
     }
+    throw new CustomerException(1, "登录方式必须为微信");
   }
 }

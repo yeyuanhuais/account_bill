@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 const now = dayjs().format("YYYY-MM-DD HH:mm:ss");
 export type UserDocument = User & Document;
 @Schema()

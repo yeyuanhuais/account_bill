@@ -24,7 +24,7 @@ export class WxLoginUserDto {
   })
   @IsString({ message: "小程序登录凭证必须是字符串" })
   @IsOptional()
-  readonly code?: string;
+  readonly code: string;
 
   @ApiPropertyOptional({
     description: "登录方式",

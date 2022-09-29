@@ -15,3 +15,9 @@
 .income_expenditure_category .one .text {
   margin-top: 10rpx;
 }
+.income_expenditure_category .no_data {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

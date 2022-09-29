@@ -1,7 +1,7 @@
-import { ArgumentMetadata, PipeTransform, Injectable } from '@nestjs/common';
-import { CustomerException } from '../exceptions/customer.exception';
-import { plainToClass } from 'class-transformer';
-import { validate } from 'class-validator';
+import { ArgumentMetadata, PipeTransform, Injectable, Type } from "@nestjs/common";
+import { CustomerException } from "../exceptions/customer.exception";
+import { plainToClass } from "class-transformer";
+import { validate } from "class-validator";
 
 @Injectable()
 export class ValidationPipe implements PipeTransform {
@@ -18,20 +18,20 @@ export class ValidationPipe implements PipeTransform {
     const errors = await validate(object);
 
     if (errors.length > 0) {
-      const message = [];
-      errors.map((item) => {
+      const message: string[] = [];
+      errors.map(item => {
         for (const key in item.constraints) {
           message.push(item.constraints[key]);
         }
       });
-      throw new CustomerException(1, message.join(','));
+      throw new CustomerException(1, message.join(","));
     }
 
     return value;
   }
 
-  private toValidate(metatype): boolean {
+  private toValidate(metatype: Type<any> | StringConstructor | BooleanConstructor | NumberConstructor | ArrayConstructor | ObjectConstructor): boolean {
     const types = [String, Boolean, Number, Array, Object];
-    return !types.find((type) => metatype === type);
+    return !types.find(type => metatype === type);
   }
 }

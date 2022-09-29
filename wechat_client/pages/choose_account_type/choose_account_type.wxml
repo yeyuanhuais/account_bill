@@ -1,13 +1,13 @@
 <block wx:for="{{accountOptions}}" wx:key="id">
-  <mp-cells ext-class="my-cells" title="{{item.name}}">
+  <cells ext-class="my-cells" title="{{item.name}}">
     <block wx:for="{{item.children}}" wx:for-item="child" wx:key="id">
-      <mp-cell bind:tap="chooseType" data-id="{{child.id}}" data-name="{{child.name}}">
+      <cell bind:tap="chooseType" data-item="{{child}}" data-asset_type="{{item.id}}">
         <view>
           <icon name="{{child.icon}}" style="margin-right:20rpx" />
           {{child.name}}
         </view>
         <view slot="footer" class="dec">{{child.dec}}</view>
-      </mp-cell>
+      </cell>
     </block>
-  </mp-cells>
+  </cells>
 </block>
