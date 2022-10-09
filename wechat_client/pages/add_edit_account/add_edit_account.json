@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "新建账户",
   "usingComponents": {
-    "mp-form": "weui-miniprogram/form/form",
-    "color-picker": "/components/common/color-picker/color-picker"
+    "mp-form": "/components/common/form/form",
+    "account-color":"/components/property/account_color/account_color"
   }
 }

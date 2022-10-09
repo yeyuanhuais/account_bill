@@ -28,6 +28,12 @@ module.exports = {
             wx.switchTab({
               url: "/pages/more/more",
             });
+            wx.showToast({
+              title: "请登录",
+              icon: "error",
+              duration: 2000,
+              mask: true
+            });
           } else if (data.code !== 0) {
             wx.showToast({
               title: data.message,

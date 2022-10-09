@@ -3,18 +3,24 @@ import { request } from "../../http/request";
 Page({
   data: {
     formData: { color: "rgb(7,193,96)", money: 0 },
-    pick: false
-  },
-  toPick() {
-    this.setData({
-      pick: true
-    });
-  },
-  pickColor(e) {
-    let { formData } = this.data;
-    // this.setData({
-    //   formData: { ...formData, color: e.detail.color }
-    // });
+    rules: [
+      {
+        name: "name",
+        rules: { required: false, message: "账户名称必填" }
+      },
+      {
+        name: "type_name",
+        rules: { required: true, message: "账户类型是必选项" }
+      },
+      {
+        name: "money",
+        rules: { required: true, message: "请输入金额" }
+      },
+      {
+        name: "color",
+        rules: { required: true, message: "选择账户颜色" }
+      }
+    ]
   },
   async formSubmit({ detail: { value } }) {
     let { formData } = this.data;
@@ -82,5 +88,22 @@ Page({
       eventChannel.on("accountType", data => {
         this.setData({ formData: { ...formData, ...data } });
       });
+  },
+  submitForm() {
+    this.selectComponent("#form").validate((valid, errors) => {
+      console.log("valid", valid, errors);
+      if (!valid) {
+        const firstError = Object.keys(errors);
+        if (firstError.length) {
+          this.setData({
+            error: errors[firstError[0]].message
+          });
+        }
+      } else {
+        wx.showToast({
+          title: "校验通过"
+        });
+      }
+    });
   }
 });
